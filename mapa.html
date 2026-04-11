@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iliturgi AR · Mapa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="nav-logo">🏛️ Iliturgi AR</a>
+
+      <nav class="main-nav">
+        <a href="home.html" class="nav-link">Inicio</a>
+        <a href="mapa.html" class="nav-link active">Mapa</a>
+        <a href="recorridos.html" class="nav-link">Recorridos</a>
+        <a href="perfil.html" class="nav-link">Perfil</a>
+        <a href="ajustes.html" class="nav-link">Ajustes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="section-heading">
+      <div>
+        <h2>Mapa del yacimiento</h2>
+        <span>Exploración espacial y acceso a puntos de interés</span>
+      </div>
+    </section>
+
+    <section class="map-layout">
+      <div class="map-stage">
+
+        <div class="map-toolbar">
+          <span class="map-chip active">Todos</span>
+          <span class="map-chip">Arquitectura</span>
+          <span class="map-chip">Hallazgos</span>
+          <span class="map-chip">Personajes</span>
+        </div>
+
+        <div class="map-surface">
+          <div class="map-grid"></div>
+          <div class="map-road road-main"></div>
+          <div class="map-road road-side"></div>
+
+          <div class="map-zone">
+            <div class="map-zone-label">Zona arqueológica</div>
+          </div>
+
+          <div class="map-compass">🧭</div>
+          <div class="map-gps">📍 GPS correcto</div>
+          <div class="map-user-dot"></div>
+
+          <a href="detalle-poi.html" class="map-marker arquitectura marker-1" title="Foro Romano">
+            <span>🏛️</span>
+          </a>
+
+          <a href="detalle-poi.html" class="map-marker hallazgo marker-2" title="Área de muralla">
+            <span>🧱</span>
+          </a>
+
+          <a href="detalle-poi.html" class="map-marker personaje marker-3" title="Personaje histórico">
+            <span>👤</span>
+          </a>
+
+          <a href="vista-ra.html" class="map-fab-ra" title="Abrir vista RA">AR</a>
+        </div>
+      </div>
+
+      <aside class="map-side-panel">
+        <div class="map-poi-card">
+          <div class="map-poi-media">🏛️</div>
+          <div class="map-poi-content">
+            <div class="map-poi-category">Arquitectura romana</div>
+            <h3>Foro Romano</h3>
+            <p>
+              Espacio central del yacimiento utilizado como punto de acceso principal al contenido interpretativo y a la visualización aumentada.
+            </p>
+            <div class="map-poi-meta">📍 18 m · Disponible en AR</div>
+
+            <div class="map-poi-actions">
+              <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Ver detalle</a>
+              <a href="vista-ra.html" class="btn btn-primary btn-small">Abrir RA</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-info-box">
+          <h4>Qué permite esta vista</h4>
+          <ul>
+            <li>Consultar la localización aproximada de los puntos de interés.</li>
+            <li>Filtrar contenidos por categoría patrimonial.</li>
+            <li>Acceder a la ficha del POI o abrir la vista de realidad aumentada.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+</body>
+</html>

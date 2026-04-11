@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vista RA · Iliturgi AR</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="vista-ra.css">
+</head>
+<body>
+
+  <main class="ra-page">
+    <div class="ra-top-bar">
+      <a href="home.html" class="ra-top-btn">← Volver</a>
+      <div class="ra-top-title">Vista RA · Prototipo Iliturgi</div>
+      <button class="ra-top-btn">ℹ Info</button>
+    </div>
+
+    <div class="ra-helper-text">
+      Modelo 3D visible en web. En móvil, el botón AR permitirá probar la experiencia aumentada.
+    </div>
+
+    <model-viewer
+      id="visor-ar"
+      src="./models/astronaut.glb"
+      alt="Modelo 3D de prueba"
+      camera-controls
+      auto-rotate
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      shadow-intensity="1"
+      environment-image="neutral"
+      exposure="1.1"
+      camera-orbit="0deg 75deg 2.5m"
+      min-camera-orbit="auto auto 1m"
+      max-camera-orbit="auto auto 5m">
+    </model-viewer>
+
+    <div class="ra-poi-label">Foro Romano · Iliturgi</div>
+
+    <div class="ra-era-box">
+      <div class="ra-era-label">Línea temporal</div>
+
+      <div class="ra-era-track">
+        <div class="ra-era-dot"></div>
+        <div class="ra-era-line"></div>
+        <div class="ra-era-dot active"></div>
+        <div class="ra-era-line"></div>
+        <div class="ra-era-dot"></div>
+      </div>
+
+      <div class="ra-era-names">
+        <div class="ra-era-name">Fase Ibera</div>
+        <div class="ra-era-name active">Fase Romana</div>
+        <div class="ra-era-name">Etapa Final</div>
+      </div>
+    </div>
+
+    <div class="ra-bottom-bar">
+      <button class="ra-action-btn">📷</button>
+      <button class="ra-action-btn primary" id="btn-ar">AR</button>
+      <button class="ra-action-btn">🔊</button>
+    </div>
+  </main>
+
+  <script>
+    const visorAR = document.getElementById('visor-ar');
+    const btnAR = document.getElementById('btn-ar');
+
+    btnAR.addEventListener('click', async () => {
+      if (visorAR.canActivateAR) {
+        try {
+          await visorAR.activateAR();
+        } catch (error) {
+          alert('No se pudo abrir la experiencia AR en este dispositivo o navegador.');
+          console.error(error);
+        }
+      } else {
+        alert('La realidad aumentada no está disponible en este dispositivo o navegador.');
+      }
+    });
+  </script>
+
+</body>
+</html>

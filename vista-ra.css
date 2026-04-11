@@ -1,0 +1,239 @@
+.ra-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #2C3E50 0%, #4A6741 40%, #6B8A5E 70%, #8FAF7E 100%);
+}
+
+.ra-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.18));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ra-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0));
+}
+
+.ra-top-btn {
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.30);
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+}
+
+.ra-top-title {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.ra-helper-text {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 18;
+  background: rgba(0,0,0,0.38);
+  color: rgba(255,255,255,0.92);
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 620px;
+  width: calc(100% - 40px);
+  backdrop-filter: blur(5px);
+}
+
+model-viewer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+  --progress-bar-color: #C4973B;
+}
+
+.ra-poi-label {
+  position: absolute;
+  left: 50%;
+  bottom: 165px;
+  transform: translateX(-50%);
+  z-index: 12;
+  background: rgba(0,0,0,0.72);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.ra-era-box {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 95px;
+  z-index: 15;
+  background: rgba(0,0,0,0.58);
+  border-radius: 20px;
+  padding: 14px 16px;
+  backdrop-filter: blur(8px);
+}
+
+.ra-era-label {
+  color: rgba(255,255,255,0.72);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.ra-era-track {
+  display: flex;
+  align-items: center;
+}
+
+.ra-era-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.30);
+  flex-shrink: 0;
+}
+
+.ra-era-dot.active {
+  width: 16px;
+  height: 16px;
+  background: #C4973B;
+}
+
+.ra-era-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.22);
+}
+
+.ra-era-names {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.ra-era-name {
+  flex: 1;
+  text-align: center;
+  color: rgba(255,255,255,0.58);
+  font-size: 11px;
+}
+
+.ra-era-name.active {
+  color: #C4973B;
+  font-weight: 800;
+}
+
+.ra-bottom-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 20px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.62), rgba(0,0,0,0));
+}
+
+.ra-action-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.16);
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.ra-action-btn.primary {
+  width: 74px;
+  height: 74px;
+  background: #C4973B;
+  border: 4px solid rgba(255,255,255,0.35);
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(196,151,59,0.40);
+}
+
+@media (max-width: 768px) {
+  .ra-top-bar {
+    padding: 14px 14px;
+  }
+
+  .ra-top-title {
+    font-size: 15px;
+  }
+
+  .ra-top-btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .ra-helper-text {
+    top: 70px;
+    font-size: 12px;
+  }
+
+  .ra-poi-label {
+    bottom: 155px;
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .ra-era-box {
+    left: 12px;
+    right: 12px;
+    bottom: 88px;
+  }
+
+  .ra-action-btn {
+    width: 54px;
+    height: 54px;
+    font-size: 22px;
+  }
+
+  .ra-action-btn.primary {
+    width: 68px;
+    height: 68px;
+    font-size: 22px;
+  }
+}

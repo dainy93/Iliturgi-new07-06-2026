@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iliturgi AR · Acceso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="nav-logo">🏛️ Iliturgi AR</a>
+
+      <nav class="main-nav">
+        <a href="home.html" class="nav-link">Inicio</a>
+        <a href="mapa.html" class="nav-link">Mapa</a>
+        <a href="recorridos.html" class="nav-link">Recorridos</a>
+        <a href="perfil.html" class="nav-link">Perfil</a>
+        <a href="ajustes.html" class="nav-link">Ajustes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="access-layout">
+      <div class="access-card">
+        <div class="access-header">
+          <span class="section-badge">Acceso al prototipo</span>
+          <h1 class="access-title">Iniciar sesión</h1>
+          <p class="access-text">
+            Pantalla demostrativa de acceso para representar el flujo de entrada de usuarios al sistema.
+          </p>
+        </div>
+
+        <form class="access-form" id="login-form">
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" placeholder="usuario@ejemplo.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input id="password" type="password" placeholder="••••••••" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+
+        <div class="access-divider">
+          <span>o continuar con</span>
+        </div>
+
+        <div class="access-actions">
+          <a href="home.html" class="btn btn-secondary-outline">Acceso invitado</a>
+          <button type="button" class="btn btn-secondary-dark demo-btn" data-demo="registro">
+            Simular registro
+          </button>
+        </div>
+      </div>
+
+      <aside class="access-side">
+        <div class="access-info-card">
+          <h3>Uso en el prototipo</h3>
+          <p>
+            Esta pantalla representa la entrada al sistema, pero no conecta con una base de datos real.
+            Su función es mostrar la navegación y la estructura visual del acceso.
+          </p>
+        </div>
+
+        <div class="access-info-card">
+          <h3>Opciones previstas</h3>
+          <ul>
+            <li>Inicio de sesión.</li>
+            <li>Acceso como visitante.</li>
+            <li>Registro de usuario.</li>
+            <li>Entrada a contenido personalizado.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

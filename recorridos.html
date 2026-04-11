@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iliturgi AR · Recorridos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="nav-logo">🏛️ Iliturgi AR</a>
+
+      <nav class="main-nav">
+        <a href="home.html" class="nav-link">Inicio</a>
+        <a href="mapa.html" class="nav-link">Mapa</a>
+        <a href="recorridos.html" class="nav-link active">Recorridos</a>
+        <a href="perfil.html" class="nav-link">Perfil</a>
+        <a href="ajustes.html" class="nav-link">Ajustes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="section-heading">
+      <div>
+        <h2>Recorridos e itinerarios</h2>
+        <span>Selección de rutas temáticas para explorar el yacimiento</span>
+      </div>
+    </section>
+
+    <section class="route-active-card">
+      <div class="route-active-top">
+        <div class="route-active-label">Recorrido en curso</div>
+        <div class="route-active-name">Ruta Romana esencial</div>
+      </div>
+
+      <div class="route-active-progress-row">
+        <div class="route-active-progress">
+          <div class="route-active-progress-fill"></div>
+        </div>
+        <div class="route-active-progress-text">2 / 5 hitos</div>
+      </div>
+
+      <div class="route-active-actions">
+        <a href="mapa.html" class="btn btn-secondary">Continuar recorrido</a>
+        <a href="detalle-poi.html" class="btn btn-secondary-outline">Siguiente hito</a>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <h2>Rutas disponibles</h2>
+        <span>Opciones iniciales del prototipo</span>
+      </div>
+
+      <div class="route-grid">
+        <article class="route-card-web">
+          <div class="route-card-header-web">
+            <div class="route-card-icon short">🏛️</div>
+            <div class="route-card-info">
+              <h3>Ruta Romana esencial</h3>
+              <div class="route-card-meta">
+                <span>⏱ 45 min</span>
+                <span>📍 5 hitos</span>
+                <span>AR disponible</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card-body-web">
+            <p>
+              Itinerario introductorio centrado en los espacios más representativos del asentamiento romano.
+            </p>
+
+            <div class="route-tags-web">
+              <span class="pill">General</span>
+              <span class="pill">Histórico</span>
+            </div>
+          </div>
+
+          <div class="route-card-footer-web">
+            <a href="mapa.html" class="btn btn-primary btn-small">Iniciar</a>
+          </div>
+        </article>
+
+        <article class="route-card-web">
+          <div class="route-card-header-web">
+            <div class="route-card-icon medium">🧱</div>
+            <div class="route-card-info">
+              <h3>Ruta defensiva y murallas</h3>
+              <div class="route-card-meta">
+                <span>⏱ 35 min</span>
+                <span>📍 4 hitos</span>
+                <span>Modelo 3D</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card-body-web">
+            <p>
+              Recorrido orientado a los elementos defensivos y al análisis espacial del asentamiento.
+            </p>
+
+            <div class="route-tags-web">
+              <span class="pill">Arquitectura</span>
+              <span class="pill">Espacial</span>
+            </div>
+          </div>
+
+          <div class="route-card-footer-web">
+            <a href="mapa.html" class="btn btn-primary btn-small">Iniciar</a>
+          </div>
+        </article>
+
+        <article class="route-card-web">
+          <div class="route-card-header-web">
+            <div class="route-card-icon long">🏺</div>
+            <div class="route-card-info">
+              <h3>Ruta interpretativa patrimonial</h3>
+              <div class="route-card-meta">
+                <span>⏱ 60 min</span>
+                <span>📍 7 hitos</span>
+                <span>Multimedia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-card-body-web">
+            <p>
+              Propuesta más amplia para profundizar en contexto histórico, cultura material y reconstrucción.
+            </p>
+
+            <div class="route-tags-web">
+              <span class="pill">Educativa</span>
+              <span class="pill">Patrimonio</span>
+            </div>
+          </div>
+
+          <div class="route-card-footer-web">
+            <a href="mapa.html" class="btn btn-primary btn-small">Iniciar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <h2>Hitos del recorrido activo</h2>
+        <span>Secuencia de navegación del prototipo</span>
+      </div>
+
+      <div class="route-steps-card">
+        <div class="route-step-item">
+          <div class="route-step-dot done">✓</div>
+          <div class="route-step-body">
+            <div class="route-step-title">Punto de bienvenida</div>
+            <div class="route-step-meta">Completado</div>
+          </div>
+        </div>
+
+        <div class="route-step-item">
+          <div class="route-step-dot done">✓</div>
+          <div class="route-step-body">
+            <div class="route-step-title">Foro Romano</div>
+            <div class="route-step-meta">Completado</div>
+          </div>
+        </div>
+
+        <div class="route-step-item">
+          <div class="route-step-dot active">3</div>
+          <div class="route-step-body">
+            <div class="route-step-title">Área de muralla</div>
+            <div class="route-step-meta">Siguiente hito sugerido</div>
+          </div>
+        </div>
+
+        <div class="route-step-item">
+          <div class="route-step-dot">4</div>
+          <div class="route-step-body">
+            <div class="route-step-title">Espacio ceremonial</div>
+            <div class="route-step-meta">Pendiente</div>
+          </div>
+        </div>
+
+        <div class="route-step-item">
+          <div class="route-step-dot">5</div>
+          <div class="route-step-body">
+            <div class="route-step-title">Cierre del recorrido</div>
+            <div class="route-step-meta">Pendiente</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="route-custom-box">
+      <div class="route-custom-icon">🧭</div>
+      <div class="route-custom-body">
+        <h3>Recorrido personalizado</h3>
+        <p>
+          El prototipo también puede ampliarse para permitir rutas adaptadas al perfil del visitante o a criterios temáticos.
+        </p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
