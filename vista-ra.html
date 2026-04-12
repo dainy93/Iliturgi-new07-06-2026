@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vista RA · Iliturgi AR</title>
-
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="vista-ra.css">
 </head>
@@ -19,7 +17,7 @@
       <button class="ra-top-btn">ℹ Info</button>
     </div>
 
-    <div class="ra-helper-text" id="helper-text">
+    <div class="ra-helper-text">
       Modelo 3D visible en web. En móvil, el botón AR permitirá probar la experiencia aumentada.
     </div>
 
@@ -30,7 +28,7 @@
       camera-controls
       auto-rotate
       ar
-      ar-modes="webxr"
+      ar-modes="webxr scene-viewer quick-look"
       shadow-intensity="1"
       environment-image="neutral"
       exposure="1.1"
@@ -66,233 +64,22 @@
     </div>
   </main>
 
-  <!-- Fallback: cámara + giroscopio / cámara simple -->
-  <section class="ra-camera-fallback" id="camera-fallback">
-    <video
-      id="camera-video"
-      class="ra-camera-video"
-      autoplay
-      muted
-      playsinline>
-    </video>
-
-    <div class="ra-camera-badge" id="camera-status">
-      Modo alternativo activado.
-    </div>
-
-    <div class="ra-camera-overlay">
-      <model-viewer
-        id="camera-model"
-        class="ra-camera-model"
-        src="./models/astronaut.glb"
-        alt="Modelo 3D superpuesto"
-        auto-rotate
-        disable-zoom
-        interaction-prompt="none"
-        shadow-intensity="0"
-        environment-image="neutral"
-        exposure="1.1">
-      </model-viewer>
-    </div>
-
-    <div class="ra-camera-ui">
-      <button class="ra-camera-reset" id="btn-reset-modelo">Recentrar</button>
-      <button class="ra-camera-close" id="btn-close-camera">Cerrar</button>
-    </div>
-  </section>
-
   <script>
     const visorAR = document.getElementById('visor-ar');
     const btnAR = document.getElementById('btn-ar');
-    const helperText = document.getElementById('helper-text');
-
-    const cameraFallback = document.getElementById('camera-fallback');
-    const cameraVideo = document.getElementById('camera-video');
-    const cameraModel = document.getElementById('camera-model');
-    const cameraStatus = document.getElementById('camera-status');
-    const btnCloseCamera = document.getElementById('btn-close-camera');
-    const btnResetModelo = document.getElementById('btn-reset-modelo');
-
-    let cameraStream = null;
-    let orientationHandler = null;
-
-    function isIOS() {
-      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    }
-
-    async function supportsWebXRAR() {
-      if (!navigator.xr || !navigator.xr.isSessionSupported) {
-        return false;
-      }
-
-      try {
-        return await navigator.xr.isSessionSupported('immersive-ar');
-      } catch (error) {
-        return false;
-      }
-    }
-
-    function supportsOrientationEvents() {
-      return 'DeviceOrientationEvent' in window;
-    }
-
-    async function requestOrientationPermissionIfNeeded() {
-      if (
-        typeof DeviceOrientationEvent !== 'undefined' &&
-        typeof DeviceOrientationEvent.requestPermission === 'function'
-      ) {
-        const response = await DeviceOrientationEvent.requestPermission();
-        return response === 'granted';
-      }
-
-      return true;
-    }
-
-    async function openCamera() {
-      if (!window.isSecureContext) {
-        throw new Error('La cámara solo funciona en HTTPS o localhost.');
-      }
-
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        throw new Error('getUserMedia no está disponible en este navegador.');
-      }
-
-      try {
-        cameraStream = await navigator.mediaDevices.getUserMedia({
-          video: {
-            facingMode: { ideal: 'environment' }
-          },
-          audio: false
-        });
-      } catch (firstError) {
-        console.warn('No se pudo abrir la cámara trasera. Se intentará con cámara genérica.', firstError);
-
-        cameraStream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false
-        });
-      }
-
-      cameraVideo.srcObject = cameraStream;
-      await cameraVideo.play();
-    }
-
-    function stopCamera() {
-      if (cameraStream) {
-        cameraStream.getTracks().forEach(track => track.stop());
-        cameraStream = null;
-      }
-
-      cameraVideo.srcObject = null;
-    }
-
-    function resetModelTransform() {
-      cameraModel.style.transform = 'translateY(4vh) rotateX(0deg) rotateY(0deg) scale(1)';
-    }
-
-    function enableGyroscopeMode() {
-      orientationHandler = (event) => {
-        const beta = typeof event.beta === 'number' ? event.beta : 0;
-        const gamma = typeof event.gamma === 'number' ? event.gamma : 0;
-
-        const rotateX = Math.max(-20, Math.min(20, (beta - 45) * 0.2));
-        const rotateY = Math.max(-25, Math.min(25, gamma * 0.35));
-
-        cameraModel.style.transform =
-          `translateY(4vh) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
-      };
-
-      window.addEventListener('deviceorientation', orientationHandler, true);
-    }
-
-    function disableGyroscopeMode() {
-      if (orientationHandler) {
-        window.removeEventListener('deviceorientation', orientationHandler, true);
-        orientationHandler = null;
-      }
-    }
-
-    async function openFallbackWithCameraAndMaybeGyro() {
-      await openCamera();
-
-      cameraFallback.classList.add('active');
-      resetModelTransform();
-
-      let gyroEnabled = false;
-
-      if (supportsOrientationEvents()) {
-        try {
-          const granted = await requestOrientationPermissionIfNeeded();
-
-          if (granted) {
-            enableGyroscopeMode();
-            gyroEnabled = true;
-          }
-        } catch (error) {
-          console.warn('No se pudo habilitar el giroscopio:', error);
-        }
-      }
-
-      if (gyroEnabled) {
-        cameraStatus.textContent =
-          'Modo alternativo activado. El modelo se muestra sobre la cámara y reacciona a la orientación del dispositivo.';
-      } else {
-        cameraStatus.textContent =
-          'Modo alternativo activado. El modelo se muestra fijo sobre la cámara porque el giroscopio no está disponible.';
-      }
-    }
-
-    function closeFallbackCamera() {
-      disableGyroscopeMode();
-      stopCamera();
-      cameraFallback.classList.remove('active');
-    }
-
-    async function launchARorFallback() {
-      const hasWebXRAR = await supportsWebXRAR();
-
-      if (hasWebXRAR) {
-        try {
-          await visorAR.activateAR();
-          return;
-        } catch (error) {
-          console.warn('WebXR AR falló. Se intentará el modo alternativo.', error);
-        }
-      }
-
-      try {
-        await openFallbackWithCameraAndMaybeGyro();
-      } catch (error) {
-        console.error('Error al abrir fallback:', error);
-
-        if (!window.isSecureContext) {
-          alert('No se pudo abrir la cámara porque esta función requiere HTTPS o localhost.');
-        } else {
-          alert(`No se pudo abrir la cámara. Error: ${error.name || 'desconocido'} - ${error.message || 'sin mensaje'}`);
-        }
-      }
-    }
 
     btnAR.addEventListener('click', async () => {
-      await launchARorFallback();
+      if (visorAR.canActivateAR) {
+        try {
+          await visorAR.activateAR();
+        } catch (error) {
+          alert('No se pudo abrir la experiencia AR en este dispositivo o navegador.');
+          console.error(error);
+        }
+      } else {
+        alert('La realidad aumentada no está disponible en este dispositivo o navegador.');
+      }
     });
-
-    btnCloseCamera.addEventListener('click', () => {
-      closeFallbackCamera();
-    });
-
-    btnResetModelo.addEventListener('click', () => {
-      resetModelTransform();
-    });
-
-    window.addEventListener('beforeunload', () => {
-      closeFallbackCamera();
-    });
-
-    if (isIOS()) {
-      helperText.textContent =
-        'En dispositivos compatibles se intentará abrir RA. Si no está disponible, se activará automáticamente un modo alternativo con cámara.';
-    }
   </script>
 
 </body>
