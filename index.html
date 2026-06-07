@@ -4,29 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iliturgi AR · Bienvenida</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=responsive">
 </head>
 <body>
 
   <main class="landing-page">
-    <section class="landing-hero">
-      <div class="landing-content">
-        <div class="landing-badge">Patrimonio · Historia · AR</div>
 
-        <h1 class="landing-title">Iliturgi AR</h1>
+    <section class="landing-hero" aria-labelledby="landing-title">
+      <div class="landing-content">
+
+        <div class="landing-top">
+          <span class="landing-badge">Patrimonio · Historia · AR</span>
+
+          <div class="text-size-controls" aria-label="Controles de tamaño de texto">
+            <button type="button" class="text-size-btn" data-text-size="normal">A</button>
+            <button type="button" class="text-size-btn" data-text-size="large">A+</button>
+          </div>
+        </div>
+
+        <h1 id="landing-title" class="landing-title">Iliturgi AR</h1>
 
         <p class="landing-subtitle">
-          Prototipo web para explorar el patrimonio de Iliturgi mediante visualización 3D y realidad aumentada desde navegador.
+          Explora el patrimonio histórico de Iliturgi mediante mapas interactivos,
+          contenidos culturales y experiencias de realidad aumentada desde el navegador.
         </p>
 
-        <div class="landing-actions">
+        <div class="landing-actions" aria-label="Acciones principales">
           <a href="home.html" class="btn btn-primary">Entrar al prototipo</a>
-          <a href="acceso.html" class="btn btn-secondary">Acceder / Registro</a>
-          <a href="vista-ra.html" class="btn btn-secondary">Ir a la vista RA</a>
+          <a href="vista-ra.html" class="btn btn-secondary">Vista RA</a>
         </div>
+
+        <section class="quick-access" aria-labelledby="quick-access-title">
+          <h2 id="quick-access-title" class="section-title">Accesos rápidos</h2>
+
+          <div class="quick-grid">
+            <a href="home.html" class="quick-card">
+              <span class="quick-icon" aria-hidden="true">🗺️</span>
+              <span class="quick-title">Mapa</span>
+              <span class="quick-text">Explora puntos de interés.</span>
+            </a>
+
+            <a href="vista-ra.html" class="quick-card">
+              <span class="quick-icon" aria-hidden="true">📱</span>
+              <span class="quick-title">Realidad aumentada</span>
+              <span class="quick-text">Visualiza contenido inmersivo.</span>
+            </a>
+
+            <a href="acceso.html" class="quick-card">
+              <span class="quick-icon" aria-hidden="true">👤</span>
+              <span class="quick-title">Acceso</span>
+              <span class="quick-text">Inicia sesión o regístrate.</span>
+            </a>
+
+            <a href="home.html#contenido" class="quick-card">
+              <span class="quick-icon" aria-hidden="true">🏛️</span>
+              <span class="quick-title">Patrimonio</span>
+              <span class="quick-text">Consulta información histórica.</span>
+            </a>
+          </div>
+        </section>
+
       </div>
     </section>
+
   </main>
 
+  <script src="script.js?v=responsive"></script>
 </body>
 </html>

@@ -4,53 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iliturgi AR · Inicio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=responsive">
 </head>
-<body>
+<body class="app-page">
 
   <header class="site-header">
     <div class="site-header-inner">
       <a href="index.html" class="nav-logo">🏛️ Iliturgi AR</a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Navegación principal">
         <a href="home.html" class="nav-link active">Inicio</a>
         <a href="mapa.html" class="nav-link">Mapa</a>
         <a href="recorridos.html" class="nav-link">Recorridos</a>
         <a href="perfil.html" class="nav-link">Perfil</a>
         <a href="ajustes.html" class="nav-link">Ajustes</a>
       </nav>
+
+      <div class="text-size-controls header-text-controls" aria-label="Tamaño de texto">
+        <button type="button" class="text-size-btn" data-text-size="normal">A</button>
+        <button type="button" class="text-size-btn" data-text-size="large">A+</button>
+      </div>
     </div>
   </header>
 
   <main class="page-shell">
+
     <section class="hero-panel">
       <div class="hero-copy">
         <span class="section-badge">Experiencia patrimonial inmersiva</span>
+
         <h1 class="page-title-xl">Explora Iliturgi desde una experiencia web interactiva</h1>
+
         <p class="page-lead">
-          Accede a puntos de interés, recorridos, contenidos interpretativos y visualización 3D con una interfaz accesible desde ordenador y móvil.
+          Accede a puntos de interés, recorridos, contenidos interpretativos y visualización 3D desde ordenador, tablet o móvil.
         </p>
 
         <div class="hero-actions">
-          <a href="vista-ra.html" class="btn btn-primary">Ver en Realidad Aumentada</a>
-          <a href="mapa.html" class="btn btn-secondary-dark">Abrir mapa del yacimiento</a>
+          <a href="vista-ra.html" class="btn btn-primary">Ver en RA</a>
+          <a href="mapa.html" class="btn btn-secondary-dark">Abrir mapa</a>
         </div>
       </div>
 
-      <div class="hero-card">
+      <aside class="hero-card" aria-label="Aviso de punto de interés cercano">
         <div class="hero-card-icon">📍</div>
         <div class="hero-card-title">Aviso de proximidad</div>
         <div class="hero-card-text">
-          Estás a <strong>18 m</strong> del <strong>Foro Romano</strong>. Puedes abrir su ficha o visualizarlo en AR.
+          Estás a <strong>18 m</strong> del <strong>Foro Romano</strong>.
         </div>
-        <a href="detalle-poi.html" class="btn btn-primary btn-small">Ver punto de interés</a>
-      </div>
+        <a href="detalle-poi.html" class="btn btn-primary btn-small">Ver punto</a>
+      </aside>
     </section>
 
-    <section class="search-section">
+    <section class="search-section" aria-label="Buscador">
       <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" placeholder="Buscar POI, recorridos, reconstrucciones...">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input type="text" class="search-input" placeholder="Buscar POI, recorridos...">
       </div>
     </section>
 
@@ -70,7 +78,7 @@
         <a href="vista-ra.html" class="quick-card">
           <div class="quick-card-icon">📱</div>
           <div class="quick-card-title">Vista RA</div>
-          <div class="quick-card-text">Visualiza el modelo 3D y prueba la experiencia aumentada.</div>
+          <div class="quick-card-text">Visualiza modelos 3D y experiencia aumentada.</div>
         </a>
 
         <a href="recorridos.html" class="quick-card">
@@ -82,15 +90,15 @@
         <a href="detalle-poi.html" class="quick-card">
           <div class="quick-card-icon">🏺</div>
           <div class="quick-card-title">Puntos de interés</div>
-          <div class="quick-card-text">Consulta fichas, audios y contenidos interpretativos.</div>
+          <div class="quick-card-text">Consulta fichas, audios y contenidos.</div>
         </a>
       </div>
     </section>
 
     <section class="content-section">
       <div class="section-heading">
-        <h2>Puntos de interés destacados</h2>
-        <span>Selección inicial del prototipo</span>
+        <h2>Puntos destacados</h2>
+        <span>Selección inicial</span>
       </div>
 
       <div class="poi-grid">
@@ -99,11 +107,11 @@
           <div class="poi-card-body">
             <div class="poi-card-category">Arquitectura</div>
             <h3>Foro Romano</h3>
-            <p>Espacio central de referencia para la interpretación histórica y la visualización 3D.</p>
-            <div class="poi-card-meta">📍 18 m · Disponible en AR</div>
+            <p>Espacio central para la interpretación histórica y la visualización 3D.</p>
+            <div class="poi-card-meta">📍 18 m · AR disponible</div>
             <div class="poi-card-actions">
-              <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Ver detalle</a>
-              <a href="vista-ra.html" class="btn btn-primary btn-small">Abrir AR</a>
+              <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Detalle</a>
+              <a href="vista-ra.html" class="btn btn-primary btn-small">AR</a>
             </div>
           </div>
         </article>
@@ -114,9 +122,9 @@
             <div class="poi-card-category">Restos arqueológicos</div>
             <h3>Área de muralla</h3>
             <p>Zona destacada para contextualizar la defensa y evolución del asentamiento.</p>
-            <div class="poi-card-meta">📍 42 m · Modelo 3D disponible</div>
+            <div class="poi-card-meta">📍 42 m · Modelo 3D</div>
             <div class="poi-card-actions">
-              <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Ver detalle</a>
+              <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Detalle</a>
             </div>
           </div>
         </article>
@@ -126,8 +134,8 @@
           <div class="poi-card-body">
             <div class="poi-card-category">Cultura material</div>
             <h3>Pieza destacada</h3>
-            <p>Ejemplo de contenido interpretativo para mostrar objetos asociados al yacimiento.</p>
-            <div class="poi-card-meta">🎧 Audiodescripción disponible</div>
+            <p>Contenido interpretativo asociado al yacimiento y a su contexto histórico.</p>
+            <div class="poi-card-meta">🎧 Audiodescripción</div>
             <div class="poi-card-actions">
               <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Ver ficha</a>
             </div>
@@ -139,28 +147,40 @@
     <section class="content-section">
       <div class="section-heading">
         <h2>Recorrido recomendado</h2>
-        <span>Propuesta de navegación del prototipo</span>
+        <span>Propuesta del prototipo</span>
       </div>
 
       <div class="route-highlight">
         <div class="route-highlight-icon">🚶</div>
+
         <div class="route-highlight-body">
           <h3>Ruta Romana esencial</h3>
           <p>
-            Recorrido breve pensado para visitantes generales, con acceso a mapa, fichas interpretativas y visualización en realidad aumentada.
+            Recorrido breve para visitantes generales, con mapa, fichas interpretativas y realidad aumentada.
           </p>
+
           <div class="route-tags">
             <span class="pill">45 min</span>
             <span class="pill">5 hitos</span>
-            <span class="pill">AR disponible</span>
+            <span class="pill">AR</span>
           </div>
         </div>
+
         <div class="route-highlight-actions">
           <a href="recorridos.html" class="btn btn-primary btn-small">Ver recorrido</a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <nav class="bottom-nav" aria-label="Navegación móvil">
+    <a href="home.html" class="bottom-nav-link active"><span>Inicio</span></a>
+    <a href="mapa.html" class="bottom-nav-link"><span>Mapa</span></a>
+    <a href="vista-ra.html" class="bottom-nav-link"><span>RA</span></a>
+    <a href="recorridos.html" class="bottom-nav-link"><span>Rutas</span></a>
+  </nav>
+
+  <script src="script.js?v=responsive"></script>
 </body>
 </html>

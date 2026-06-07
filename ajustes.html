@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iliturgi AR · Ajustes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=responsive">
 </head>
-<body>
+<body class="app-page">
 
   <header class="site-header">
     <div class="site-header-inner">
@@ -19,6 +19,11 @@
         <a href="perfil.html" class="nav-link">Perfil</a>
         <a href="ajustes.html" class="nav-link active">Ajustes</a>
       </nav>
+
+      <div class="text-size-controls header-text-controls" aria-label="Tamaño de texto">
+        <button type="button" class="text-size-btn" data-text-size="normal">A</button>
+        <button type="button" class="text-size-btn" data-text-size="large">A+</button>
+      </div>
     </div>
   </header>
 
@@ -139,5 +144,13 @@
     </section>
   </main>
 
+  <nav class="bottom-nav" aria-label="NavegaciÃ³n mÃ³vil">
+    <a href="home.html" class="bottom-nav-link"><span>Inicio</span></a>
+    <a href="mapa.html" class="bottom-nav-link"><span>Mapa</span></a>
+    <a href="vista-ra.html" class="bottom-nav-link"><span>RA</span></a>
+    <a href="recorridos.html" class="bottom-nav-link"><span>Rutas</span></a>
+  </nav>
+
+  <script src="script.js?v=responsive"></script>
 </body>
 </html>

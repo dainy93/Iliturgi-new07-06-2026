@@ -3,22 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iliturgi AR · Mapa</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Iliturgi AR - Mapa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css?v=responsive">
 </head>
-<body>
+<body class="app-page">
 
   <header class="site-header">
     <div class="site-header-inner">
-      <a href="index.html" class="nav-logo">🏛️ Iliturgi AR</a>
+      <a href="index.html" class="nav-logo">Iliturgi AR</a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Navegacion principal">
         <a href="home.html" class="nav-link">Inicio</a>
         <a href="mapa.html" class="nav-link active">Mapa</a>
         <a href="recorridos.html" class="nav-link">Recorridos</a>
         <a href="perfil.html" class="nav-link">Perfil</a>
         <a href="ajustes.html" class="nav-link">Ajustes</a>
       </nav>
+
+      <div class="text-size-controls header-text-controls" aria-label="Tamano de texto">
+        <button type="button" class="text-size-btn" data-text-size="normal">A</button>
+        <button type="button" class="text-size-btn" data-text-size="large">A+</button>
+      </div>
     </div>
   </header>
 
@@ -26,59 +32,37 @@
     <section class="section-heading">
       <div>
         <h2>Mapa del yacimiento</h2>
-        <span>Exploración espacial y acceso a puntos de interés</span>
+        <span>Exploracion espacial y acceso a puntos de interes</span>
       </div>
     </section>
 
     <section class="map-layout">
       <div class="map-stage">
-
-        <div class="map-toolbar">
+        <div class="map-toolbar" aria-label="Filtros de mapa">
           <span class="map-chip active">Todos</span>
           <span class="map-chip">Arquitectura</span>
           <span class="map-chip">Hallazgos</span>
           <span class="map-chip">Personajes</span>
         </div>
 
-        <div class="map-surface">
-          <div class="map-grid"></div>
-          <div class="map-road road-main"></div>
-          <div class="map-road road-side"></div>
-
-          <div class="map-zone">
-            <div class="map-zone-label">Zona arqueológica</div>
-          </div>
-
-          <div class="map-compass">🧭</div>
-          <div class="map-gps">📍 GPS correcto</div>
-          <div class="map-user-dot"></div>
-
-          <a href="detalle-poi.html" class="map-marker arquitectura marker-1" title="Foro Romano">
-            <span>🏛️</span>
-          </a>
-
-          <a href="detalle-poi.html" class="map-marker hallazgo marker-2" title="Área de muralla">
-            <span>🧱</span>
-          </a>
-
-          <a href="detalle-poi.html" class="map-marker personaje marker-3" title="Personaje histórico">
-            <span>👤</span>
-          </a>
-
+        <div class="map-surface" aria-label="Mapa interactivo Leaflet del yacimiento">
+          <div id="leaflet-map" class="leaflet-map"></div>
+          <div class="map-gps">GPS correcto</div>
           <a href="vista-ra.html" class="map-fab-ra" title="Abrir vista RA">AR</a>
         </div>
       </div>
 
       <aside class="map-side-panel">
         <div class="map-poi-card">
-          <div class="map-poi-media">🏛️</div>
+          <div class="map-poi-media">&#127963;</div>
           <div class="map-poi-content">
             <div class="map-poi-category">Arquitectura romana</div>
             <h3>Foro Romano</h3>
             <p>
-              Espacio central del yacimiento utilizado como punto de acceso principal al contenido interpretativo y a la visualización aumentada.
+              Espacio central del yacimiento utilizado como punto de acceso principal
+              al contenido interpretativo y a la visualizacion aumentada.
             </p>
-            <div class="map-poi-meta">📍 18 m · Disponible en AR</div>
+            <div class="map-poi-meta">18 m - Disponible en AR</div>
 
             <div class="map-poi-actions">
               <a href="detalle-poi.html" class="btn btn-secondary-outline btn-small">Ver detalle</a>
@@ -88,10 +72,10 @@
         </div>
 
         <div class="map-info-box">
-          <h4>Qué permite esta vista</h4>
+          <h4>Que permite esta vista</h4>
           <ul>
-            <li>Consultar la localización aproximada de los puntos de interés.</li>
-            <li>Filtrar contenidos por categoría patrimonial.</li>
+            <li>Consultar la localizacion aproximada de los puntos de interes.</li>
+            <li>Filtrar contenidos por categoria patrimonial.</li>
             <li>Acceder a la ficha del POI o abrir la vista de realidad aumentada.</li>
           </ul>
         </div>
@@ -99,5 +83,78 @@
     </section>
   </main>
 
+  <nav class="bottom-nav" aria-label="Navegacion movil">
+    <a href="home.html" class="bottom-nav-link"><span>Inicio</span></a>
+    <a href="mapa.html" class="bottom-nav-link active"><span>Mapa</span></a>
+    <a href="vista-ra.html" class="bottom-nav-link"><span>RA</span></a>
+    <a href="recorridos.html" class="bottom-nav-link"><span>Rutas</span></a>
+  </nav>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const iliturgiCenter = [37.9714, -3.9116];
+    const map = L.map("leaflet-map", {
+      zoomControl: true,
+      scrollWheelZoom: false,
+    }).setView(iliturgiCenter, 16);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap",
+    }).addTo(map);
+
+    const pointsOfInterest = [
+      {
+        title: "Foro Romano",
+        category: "Arquitectura romana",
+        coords: [37.9714, -3.9116],
+        icon: "&#127963;",
+        distance: "18 m",
+      },
+      {
+        title: "Area de muralla",
+        category: "Restos arqueologicos",
+        coords: [37.972, -3.9108],
+        icon: "&#129521;",
+        distance: "42 m",
+      },
+      {
+        title: "Personaje historico",
+        category: "Interpretacion",
+        coords: [37.9708, -3.9124],
+        icon: "&#128100;",
+        distance: "65 m",
+      },
+    ];
+
+    const poiIcon = (icon) => L.divIcon({
+      className: "leaflet-poi-marker",
+      html: `<span>${icon}</span>`,
+      iconSize: [44, 44],
+      iconAnchor: [22, 44],
+      popupAnchor: [0, -40],
+    });
+
+    pointsOfInterest.forEach((poi) => {
+      L.marker(poi.coords, { icon: poiIcon(poi.icon), title: poi.title })
+        .addTo(map)
+        .bindPopup(`
+          <strong>${poi.title}</strong>
+          <span>${poi.category}</span>
+          <span>${poi.distance} - AR disponible</span>
+          <a href="detalle-poi.html">Ver detalle</a>
+          <a href="vista-ra.html">Abrir RA</a>
+        `);
+    });
+
+    L.circle(iliturgiCenter, {
+      radius: 95,
+      color: "#8b4a22",
+      weight: 2,
+      fillColor: "#fff7ec",
+      fillOpacity: 0.25,
+    }).addTo(map).bindPopup("Zona arqueologica aproximada");
+  </script>
+  <script src="script.js?v=responsive"></script>
 </body>
 </html>
