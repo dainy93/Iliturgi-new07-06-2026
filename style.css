@@ -32,6 +32,48 @@ body.large-text {
   font-size: 118.75%;
 }
 
+body.large-text .btn,
+body.large-text .nav-link,
+body.large-text .bottom-nav-link,
+body.large-text .quick-text,
+body.large-text .quick-card-text,
+body.large-text .poi-card-body p,
+body.large-text .route-card-body-web p,
+body.large-text .settings-item-subtitle,
+body.large-text .activity-meta,
+body.large-text .map-info-box li,
+body.large-text .poi-detail-text,
+body.large-text .access-text {
+  font-size: 1.12em;
+}
+
+body.large-text .page-title-xl,
+body.large-text .landing-title,
+body.large-text .access-title,
+body.large-text .poi-detail-title {
+  font-size: clamp(2.25rem, 7vw, 4.45rem);
+}
+
+body.large-text .page-lead,
+body.large-text .landing-subtitle {
+  font-size: clamp(1.12rem, 3.2vw, 1.42rem);
+}
+
+body.large-text .section-heading h2,
+body.large-text .section-title {
+  font-size: clamp(1.38rem, 3.8vw, 1.85rem);
+}
+
+body.large-text .quick-card-title,
+body.large-text .poi-card-body h3,
+body.large-text .route-highlight-body h3,
+body.large-text .route-card-info h3,
+body.large-text .profile-info h2,
+body.large-text .settings-item-title,
+body.large-text .activity-title {
+  font-size: 1.14em;
+}
+
 a,
 button,
 input {

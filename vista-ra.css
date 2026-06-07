@@ -40,6 +40,16 @@
   backdrop-filter: blur(4px);
 }
 
+.ra-text-controls {
+  flex-shrink: 0;
+}
+
+.ra-text-controls .text-size-btn {
+  min-width: 42px;
+  min-height: 42px;
+  border-color: rgba(255,255,255,0.55);
+}
+
 .ra-top-title {
   flex: 1;
   text-align: center;
@@ -194,9 +204,40 @@ model-viewer {
   box-shadow: 0 6px 20px rgba(196,151,59,0.40);
 }
 
+body.large-text .ra-top-btn {
+  font-size: 16px;
+}
+
+body.large-text .ra-top-title {
+  font-size: 22px;
+}
+
+body.large-text .ra-helper-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body.large-text .ra-poi-label {
+  font-size: 16px;
+}
+
+body.large-text .ra-era-label,
+body.large-text .ra-era-name {
+  font-size: 14px;
+}
+
+body.large-text .ra-action-btn {
+  font-size: 16px;
+}
+
+body.large-text .ra-action-btn.primary {
+  font-size: 24px;
+}
+
 @media (max-width: 768px) {
   .ra-top-bar {
     padding: 14px 14px;
+    gap: 8px;
   }
 
   .ra-top-title {
@@ -235,5 +276,28 @@ model-viewer {
     width: 68px;
     height: 68px;
     font-size: 22px;
+  }
+
+  .ra-text-controls .text-size-btn {
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 0.82rem;
+  }
+
+  body.large-text .ra-top-title {
+    font-size: 17px;
+  }
+
+  body.large-text .ra-helper-text {
+    top: 76px;
+    font-size: 14px;
+  }
+
+  body.large-text .ra-poi-label {
+    font-size: 14px;
+  }
+
+  body.large-text .ra-era-name {
+    font-size: 12px;
   }
 }
