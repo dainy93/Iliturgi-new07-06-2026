@@ -192,6 +192,7 @@ model-viewer {
   justify-content: center;
   cursor: pointer;
   backdrop-filter: blur(4px);
+  line-height: 1;
 }
 
 .ra-action-btn.primary {
@@ -227,7 +228,7 @@ body.large-text .ra-era-name {
 }
 
 body.large-text .ra-action-btn {
-  font-size: 16px;
+  font-size: 26px;
 }
 
 body.large-text .ra-action-btn.primary {
