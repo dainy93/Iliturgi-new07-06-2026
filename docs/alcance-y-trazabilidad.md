@@ -23,7 +23,7 @@ Este documento relaciona los requisitos funcionales y casos de uso aprobados con
 | CU-01 | Acceder en modo invitado | Implementado | `index.html`, `home.html`, `acceso.html` | El acceso invitado permite entrar sin registro real. |
 | CU-02 | Registrarse en la plataforma | Simulado | `acceso.html` | Existe accion demostrativa, sin backend. |
 | CU-03 | Iniciar sesion | Simulado | `acceso.html` | El formulario redirige al prototipo. |
-| CU-06 | Gestionar preferencias de cookies | Previsto | `ajustes.html` | Se recomienda ampliar con bloque especifico de privacidad/cookies. |
+| CU-06 | Gestionar preferencias de cookies | Prototipado | `ajustes.html` | Bloque visible de privacidad y cookies no esenciales. |
 | CU-08 | Gestionar preferencias de usuario | Prototipado | `ajustes.html` | Incluye accesibilidad y preferencias visuales. |
 | CU-09 | Consultar ayuda mediante chatbot | Previsto | No implementado | Puede incorporarse como asistente contextual futuro. |
 | CU-11 | Consultar mapa interactivo | Implementado | `mapa.html` | Integrado con Leaflet y OpenStreetMap. |
@@ -50,8 +50,8 @@ Este documento relaciona los requisitos funcionales y casos de uso aprobados con
 | CU-32 | Consultar informacion contextual mediante chatbot | Previsto | No implementado | Se documenta como extension. |
 | CU-33 | Realizar actividad interactiva | Previsto | No implementado | Requiere cuestionario funcional. |
 | CU-34 | Completar cuestionario educativo | Previsto | No implementado | Asociado al modulo F. |
-| CU-35 | Obtener insignias digitales | Simulado | `perfil.html` | El perfil muestra progreso, no insignias completas. |
-| CU-36 | Consultar puntuacion y progreso | Prototipado | `perfil.html`, `recorridos.html` | Estadisticas visuales simuladas. |
+| CU-35 | Obtener insignias digitales | Prototipado | `perfil.html` | El perfil muestra insignias simuladas y estado de obtencion. |
+| CU-36 | Consultar puntuacion y progreso | Prototipado | `perfil.html`, `recorridos.html` | Estadisticas, puntuacion e indicador de progreso simulados. |
 | CU-37 | Ayuda contextual en actividades | Previsto | No implementado | Depende de chatbot. |
 | CU-38 | Gestionar contenidos historicos | Futuro | No implementado | Requiere CMS/backend. |
 | CU-39 | Gestionar recorridos historicos | Futuro | No implementado | Requiere panel administrador. |
@@ -85,7 +85,6 @@ Este documento relaciona los requisitos funcionales y casos de uso aprobados con
 ## 6. Evolucion propuesta
 
 1. Implementar filtrado real de POI en `mapa.html`.
-2. Incorporar consentimiento de cookies y privacidad en `ajustes.html`.
-3. Crear actividad interactiva minima en `recorridos.html` o `perfil.html`.
-4. Conectar los POI y recorridos a una fuente JSON local como paso previo al backend.
-5. Desarrollar un CMS en fase posterior conforme al modulo G.
+2. Crear actividad interactiva minima en `recorridos.html` o `perfil.html`.
+3. Conectar los POI y recorridos a una fuente JSON local como paso previo al backend.
+4. Desarrollar un CMS en fase posterior conforme al modulo G.

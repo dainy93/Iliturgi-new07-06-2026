@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iliturgi AR · Ajustes</title>
+  <title>Iliturgi AR - Ajustes</title>
   <link rel="stylesheet" href="style.css?v=responsive">
 </head>
 <body class="app-page">
 
   <header class="site-header">
     <div class="site-header-inner">
-      <a href="index.html" class="nav-logo">🏛️ Iliturgi AR</a>
+      <a href="index.html" class="nav-logo">Iliturgi AR</a>
 
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Navegacion principal">
         <a href="home.html" class="nav-link">Inicio</a>
         <a href="mapa.html" class="nav-link">Mapa</a>
         <a href="recorridos.html" class="nav-link">Recorridos</a>
@@ -20,7 +20,7 @@
         <a href="ajustes.html" class="nav-link active">Ajustes</a>
       </nav>
 
-      <div class="text-size-controls header-text-controls" aria-label="Tamaño de texto">
+      <div class="text-size-controls header-text-controls" aria-label="Tamano de texto">
         <button type="button" class="text-size-btn" data-text-size="normal">A</button>
         <button type="button" class="text-size-btn" data-text-size="large">A+</button>
       </div>
@@ -31,7 +31,7 @@
     <section class="section-heading">
       <div>
         <h2>Ajustes</h2>
-        <span>Preferencias generales del prototipo</span>
+        <span>Preferencias generales, accesibilidad y privacidad del prototipo</span>
       </div>
     </section>
 
@@ -42,10 +42,10 @@
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">🌐</div>
+            <div class="settings-icon-web">ES</div>
             <div>
               <div class="settings-item-title">Idioma de la interfaz</div>
-              <div class="settings-item-subtitle">Español</div>
+              <div class="settings-item-subtitle">Espanol como idioma principal del prototipo.</div>
             </div>
           </div>
           <div class="settings-item-value">ES</div>
@@ -57,35 +57,35 @@
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">🔠</div>
+            <div class="settings-icon-web">A+</div>
             <div>
-              <div class="settings-item-title">Tamaño de texto</div>
-              <div class="settings-item-subtitle">Normal</div>
+              <div class="settings-item-title">Tamano de texto escalable</div>
+              <div class="settings-item-subtitle">Disponible en todas las pantallas principales mediante controles A y A+.</div>
             </div>
           </div>
-          <div class="settings-item-value">A+</div>
+          <div class="settings-item-value">Activo</div>
         </div>
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">🎧</div>
+            <div class="settings-icon-web">AD</div>
             <div>
-              <div class="settings-item-title">Audiodescripción</div>
-              <div class="settings-item-subtitle">Activa para contenidos compatibles</div>
+              <div class="settings-item-title">Audiodescripcion</div>
+              <div class="settings-item-subtitle">Prevista para contenidos compatibles y recursos multimedia.</div>
             </div>
           </div>
-          <div class="settings-toggle-web active"></div>
+          <div class="settings-toggle-web active" aria-label="Audiodescripcion activa"></div>
         </div>
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">🌗</div>
+            <div class="settings-icon-web">HC</div>
             <div>
               <div class="settings-item-title">Modo alto contraste</div>
-              <div class="settings-item-subtitle">Mejora la legibilidad visual</div>
+              <div class="settings-item-subtitle">Mejora prevista para reforzar legibilidad en entornos exteriores.</div>
             </div>
           </div>
-          <div class="settings-toggle-web"></div>
+          <div class="settings-toggle-web" aria-label="Modo alto contraste desactivado"></div>
         </div>
       </div>
 
@@ -94,57 +94,83 @@
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">📍</div>
+            <div class="settings-icon-web">POI</div>
             <div>
               <div class="settings-item-title">Notificaciones de proximidad</div>
-              <div class="settings-item-subtitle">Avisos al acercarte a un POI</div>
+              <div class="settings-item-subtitle">Avisos al acercarse a puntos de interes patrimonial.</div>
             </div>
           </div>
-          <div class="settings-toggle-web active"></div>
+          <div class="settings-toggle-web active" aria-label="Notificaciones de proximidad activas"></div>
         </div>
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">📱</div>
+            <div class="settings-icon-web">RA</div>
             <div>
-              <div class="settings-item-title">Vista AR automática</div>
-              <div class="settings-item-subtitle">Abrir acceso rápido cuando haya contenido disponible</div>
+              <div class="settings-item-title">Vista RA automatica</div>
+              <div class="settings-item-subtitle">Acceso rapido cuando un punto de interes tenga contenido inmersivo.</div>
             </div>
           </div>
-          <div class="settings-toggle-web"></div>
+          <div class="settings-toggle-web" aria-label="Vista RA automatica desactivada"></div>
         </div>
       </div>
 
       <div class="settings-group-web">
-        <div class="settings-group-title">Información</div>
+        <div class="settings-group-title">Privacidad y consentimiento</div>
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">ℹ️</div>
+            <div class="settings-icon-web">RGPD</div>
             <div>
-              <div class="settings-item-title">Versión del prototipo</div>
-              <div class="settings-item-subtitle">Demostración académica</div>
+              <div class="settings-item-title">Consentimiento de datos personales</div>
+              <div class="settings-item-subtitle">Aceptado para uso demostrativo, estadisticas anonimas y mejora del servicio.</div>
             </div>
           </div>
-          <div class="settings-item-value">v1.0</div>
+          <div class="settings-toggle-web active" aria-label="Consentimiento de datos personales activo"></div>
         </div>
 
         <div class="settings-item-web">
           <div class="settings-item-left">
-            <div class="settings-icon-web">🛡️</div>
+            <div class="settings-icon-web">CK</div>
             <div>
-              <div class="settings-item-title">Privacidad</div>
-              <div class="settings-item-subtitle">Uso demostrativo sin cuenta real</div>
+              <div class="settings-item-title">Cookies no esenciales</div>
+              <div class="settings-item-subtitle">Desactivadas por defecto en modo invitado; solo se conserva la preferencia de accesibilidad.</div>
             </div>
           </div>
-          <div class="settings-item-value">Demo</div>
+          <div class="settings-toggle-web" aria-label="Cookies no esenciales desactivadas"></div>
+        </div>
+
+        <div class="settings-item-web">
+          <div class="settings-item-left">
+            <div class="settings-icon-web">INV</div>
+            <div>
+              <div class="settings-item-title">Modo invitado</div>
+              <div class="settings-item-subtitle">Permite consultar mapa, fichas, recorridos y RA sin registro previo.</div>
+            </div>
+          </div>
+          <div class="settings-item-value">Activo</div>
+        </div>
+      </div>
+
+      <div class="settings-group-web">
+        <div class="settings-group-title">Informacion</div>
+
+        <div class="settings-item-web">
+          <div class="settings-item-left">
+            <div class="settings-icon-web">v1</div>
+            <div>
+              <div class="settings-item-title">Version del prototipo</div>
+              <div class="settings-item-subtitle">Demostracion academica vinculada a requisitos, casos de uso y diseno de BD.</div>
+            </div>
+          </div>
+          <div class="settings-item-value">v1.0</div>
         </div>
       </div>
 
     </section>
   </main>
 
-  <nav class="bottom-nav" aria-label="NavegaciÃ³n mÃ³vil">
+  <nav class="bottom-nav" aria-label="Navegacion movil">
     <a href="home.html" class="bottom-nav-link"><span>Inicio</span></a>
     <a href="mapa.html" class="bottom-nav-link"><span>Mapa</span></a>
     <a href="vista-ra.html" class="bottom-nav-link"><span>RA</span></a>
