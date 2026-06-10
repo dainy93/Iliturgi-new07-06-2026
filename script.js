@@ -19,6 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
   const storedTextSize = storage.get();
+  const getCookieConsent = () => {
+    try {
+      return window.localStorage.getItem("iliturgi-cookie-consent");
+    } catch (error) {
+      return null;
+    }
+  };
+  const setCookieConsent = (value) => {
+    try {
+      window.localStorage.setItem("iliturgi-cookie-consent", value);
+    } catch (error) {
+      return;
+    }
+  };
 
   if (storedTextSize === "large") {
     document.body.classList.add("large-text");
@@ -61,4 +75,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  if (!getCookieConsent()) {
+    const banner = document.createElement("section");
+    banner.className = "cookie-banner";
+    banner.setAttribute("aria-label", "Aviso de cookies y privacidad");
+    banner.innerHTML = `
+      <div class="cookie-banner-text">
+        <strong>Privacidad y cookies</strong>
+        <span>Usamos preferencias locales para accesibilidad y, opcionalmente, cookies no esenciales para analisis anonimo del prototipo.</span>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="btn btn-secondary-outline btn-small" data-cookie-action="reject">Rechazar</button>
+        <a href="ajustes.html" class="btn btn-secondary-outline btn-small">Configurar</a>
+        <button type="button" class="btn btn-primary btn-small" data-cookie-action="accept">Aceptar</button>
+      </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    banner.querySelectorAll("[data-cookie-action]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setCookieConsent(button.dataset.cookieAction);
+        banner.remove();
+      });
+    });
+  }
 });

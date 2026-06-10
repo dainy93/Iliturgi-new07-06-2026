@@ -23,7 +23,7 @@ Este documento relaciona los requisitos funcionales y casos de uso aprobados con
 | CU-01 | Acceder en modo invitado | Implementado | `index.html`, `home.html`, `acceso.html` | El acceso invitado permite entrar sin registro real. |
 | CU-02 | Registrarse en la plataforma | Simulado | `acceso.html` | Existe accion demostrativa, sin backend. |
 | CU-03 | Iniciar sesion | Simulado | `acceso.html` | El formulario redirige al prototipo. |
-| CU-06 | Gestionar preferencias de cookies | Prototipado | `ajustes.html` | Bloque visible de privacidad y cookies no esenciales. |
+| CU-06 | Gestionar preferencias de cookies | Prototipado | `index.html`, `home.html`, `ajustes.html` | Banner de cookies con aceptar, rechazar y configurar; bloque visible en ajustes. |
 | CU-08 | Gestionar preferencias de usuario | Prototipado | `ajustes.html` | Incluye accesibilidad y preferencias visuales. |
 | CU-09 | Consultar ayuda mediante chatbot | Previsto | No implementado | Puede incorporarse como asistente contextual futuro. |
 | CU-11 | Consultar mapa interactivo | Implementado | `mapa.html` | Integrado con Leaflet y OpenStreetMap. |

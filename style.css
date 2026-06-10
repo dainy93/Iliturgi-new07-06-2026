@@ -1374,6 +1374,47 @@ button:focus-visible {
   display: none;
 }
 
+.cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+.cookie-banner-text {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.cookie-banner-text strong {
+  color: var(--primary-dark);
+  font-size: 1rem;
+}
+
+.cookie-banner-text span {
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 @media (max-width: 900px) {
   .hero-panel,
   .map-layout,
@@ -1716,6 +1757,22 @@ button:focus-visible {
   .bottom-nav-link.active {
     color: var(--primary-dark);
     background: var(--secondary);
+  }
+
+  .cookie-banner {
+    bottom: 76px;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.85rem;
+  }
+
+  .cookie-banner-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-banner-actions .btn {
+    width: 100%;
   }
 }
 
