@@ -1,38 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initIliturgiUI() {
   const loginForm = document.getElementById("login-form");
   const demoButtons = document.querySelectorAll(".demo-btn");
   const textSizeButtons = document.querySelectorAll("[data-text-size]");
-  const storage = {
-    get() {
+
+  const safeStorage = {
+    get(key) {
       try {
-        return window.localStorage.getItem("iliturgi-text-size");
+        return window.localStorage ? window.localStorage.getItem(key) : null;
       } catch (error) {
         return null;
       }
     },
-    set(value) {
+    set(key, value) {
       try {
-        window.localStorage.setItem("iliturgi-text-size", value);
+        if (window.localStorage) {
+          window.localStorage.setItem(key, value);
+        }
       } catch (error) {
         return;
       }
     },
   };
-  const storedTextSize = storage.get();
-  const getCookieConsent = () => {
-    try {
-      return window.localStorage.getItem("iliturgi-cookie-consent");
-    } catch (error) {
-      return null;
-    }
-  };
-  const setCookieConsent = (value) => {
-    try {
-      window.localStorage.setItem("iliturgi-cookie-consent", value);
-    } catch (error) {
-      return;
-    }
-  };
+
+  const storedTextSize = safeStorage.get("iliturgi-text-size");
 
   if (storedTextSize === "large") {
     document.body.classList.add("large-text");
@@ -48,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const useLargeText = size === "large";
       document.body.classList.toggle("large-text", useLargeText);
-      storage.set(useLargeText ? "large" : "normal");
+      safeStorage.set("iliturgi-text-size", useLargeText ? "large" : "normal");
 
       textSizeButtons.forEach((control) => {
         control.setAttribute(
@@ -68,15 +58,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   demoButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const action = button.dataset.demo;
-
-      if (action === "registro") {
-        alert("Simulación de registro: en una versión real aquí se abriría el formulario de alta.");
+      if (button.dataset.demo === "registro") {
+        alert("Simulacion de registro: en una version real aqui se abriria el formulario de alta.");
       }
     });
   });
 
-  if (!getCookieConsent()) {
+  const cookieConsent = safeStorage.get("iliturgi-cookie-consent");
+  const sessionCookieConsent = document.body.dataset.cookieConsent;
+
+  if (!cookieConsent && !sessionCookieConsent && !document.querySelector(".cookie-banner")) {
     const banner = document.createElement("section");
     banner.className = "cookie-banner";
     banner.setAttribute("aria-label", "Aviso de cookies y privacidad");
@@ -96,9 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     banner.querySelectorAll("[data-cookie-action]").forEach((button) => {
       button.addEventListener("click", () => {
-        setCookieConsent(button.dataset.cookieAction);
+        const decision = button.dataset.cookieAction;
+        safeStorage.set("iliturgi-cookie-consent", decision);
+        document.body.dataset.cookieConsent = decision;
         banner.remove();
       });
     });
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initIliturgiUI);
+} else {
+  initIliturgiUI();
+}

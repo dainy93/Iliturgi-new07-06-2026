@@ -69,6 +69,35 @@
 
   </main>
 
-  <script src="script.js?v=privacy"></script>
+  <script src="script.js?v=cookie-index"></script>
+  <script>
+    if (!document.querySelector(".cookie-banner")) {
+      const banner = document.createElement("section");
+      banner.className = "cookie-banner";
+      banner.setAttribute("aria-label", "Aviso de cookies y privacidad");
+      banner.innerHTML = `
+        <div class="cookie-banner-text">
+          <strong>Privacidad y cookies</strong>
+          <span>Usamos preferencias locales para accesibilidad y, opcionalmente, cookies no esenciales para analisis anonimo del prototipo.</span>
+        </div>
+        <div class="cookie-banner-actions">
+          <button type="button" class="btn btn-secondary-outline btn-small" data-cookie-action="reject">Rechazar</button>
+          <a href="ajustes.html" class="btn btn-secondary-outline btn-small">Configurar</a>
+          <button type="button" class="btn btn-primary btn-small" data-cookie-action="accept">Aceptar</button>
+        </div>
+      `;
+      document.body.appendChild(banner);
+      banner.querySelectorAll("[data-cookie-action]").forEach((button) => {
+        button.addEventListener("click", () => {
+          try {
+            window.localStorage.setItem("iliturgi-cookie-consent", button.dataset.cookieAction);
+          } catch (error) {
+            document.body.dataset.cookieConsent = button.dataset.cookieAction;
+          }
+          banner.remove();
+        });
+      });
+    }
+  </script>
 </body>
 </html>
