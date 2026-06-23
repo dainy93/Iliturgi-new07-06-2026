@@ -95,7 +95,7 @@
     const iliturgiCenter = [37.9714, -3.9116];
     const map = L.map("leaflet-map", {
       zoomControl: true,
-      scrollWheelZoom: false,
+      scrollWheelZoom: true,
     }).setView(iliturgiCenter, 16);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
